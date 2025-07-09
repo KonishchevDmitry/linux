@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -eu
+
+if [[ ! -e .config || -z "$(< .config)" ]]; then
+    echo "Pulling the actual config..."
+    ssh dmitry@server.lan 'cat "/boot/config-$(uname -r)"' > .config
+fi
