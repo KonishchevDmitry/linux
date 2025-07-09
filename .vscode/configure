@@ -1,0 +1,24 @@
+#!/bin/bash
+#
+# Configures development environment
+# This script must be executed from VSCode terminal
+#
+# Preconfiguration:
+# orbctl create --arch amd64 ubuntu kernel
+# sudo apt install git tmux && curl -sSf https://konishchev.ru/scripts/setup-dotfiles | bash
+# mkdir ~/src && git clone git@github.com:KonishchevDmitry/linux.git ~/src/linux
+# Connect to kernel@orb in VSCode
+
+set -exu
+
+sudo apt install bc bison build-essential flex htop libelf-dev libncurses-dev libssl-dev zstd
+code --install-extension ms-vscode.cpptools
+
+git configure-author
+git remote show upstream 2>/dev/null || git remote add upstream git@github.com:torvalds/linux.git
+git remote update
+
+./.vscode/generate-config
+
+make -j "$(nproc)"
+./scripts/clang-tools/gen_compile_commands.py
