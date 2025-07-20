@@ -11,14 +11,14 @@
 
 set -exu
 
-sudo apt install bc bison build-essential flex htop libelf-dev libncurses-dev libssl-dev zstd
-code --install-extension ms-vscode.cpptools
+sudo apt install apt-file bash-completion bc bison build-essential clang clangd command-not-found flex htop libelf-dev libncurses-dev libssl-dev lld llvm man-db zstd
+#code --install-extension ms-vscode.makefile-tools
+#code --install-extension ms-vscode.cpptools
+code --install-extension llvm-vs-code-extensions.vscode-clangd
 
 git configure-author
 git remote show upstream 2>/dev/null || git remote add upstream git@github.com:torvalds/linux.git
 git remote update
 
 ./.vscode/generate-config
-
-make -j "$(nproc)"
-./scripts/clang-tools/gen_compile_commands.py
+make -j "$(nproc)" LLVM=1 ARCH=x86 compile_commands.json
