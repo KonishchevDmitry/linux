@@ -4,9 +4,18 @@
             "name": "Linux",
 
             "defines": [],
-            "includePath": ["${workspaceFolder}/**"],
+            "includePath": [
+                "${workspaceFolder}/arch/x86/include/generated",
+                "${workspaceFolder}/arch/x86/include",
+                "${workspaceFolder}/include",
+                "${workspaceFolder}/**"
+            ],
+            "forcedInclude": [
+                "${workspaceFolder}/include/generated/autoconf.h"
+            ],
 
             "dotConfig": "${workspaceFolder}/.config",
+            "compileCommands": "${workspaceFolder}/compile_commands.json",
             "configurationProvider": "ms-vscode.makefile-tools",
 
             "compilerPath": "/usr/bin/gcc",

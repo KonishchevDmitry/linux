@@ -1,10 +1,37 @@
 {
     "terminal.integrated.profiles.linux": {
-    "tmux": {
+        "tmux": {
             "path": "ssh-tmux-login",
             "args": ["--session", "code"],
             "icon": "terminal-tmux"
         }
     },
     "terminal.integrated.defaultProfile.linux": "tmux",
+
+    "[c]": {
+        "editor.tabSize": 8,
+        "editor.insertSpaces": false,
+        "editor.detectIndentation": false,
+        "editor.rulers": [80, 100]
+    },
+    "files.associations": {
+        "*.h": "c",
+    },
+
+    "files.exclude": {
+        "**/.*.*.cmd": true,
+        "**/*.a": true,
+        "**/*.o": true,
+        "**/*.ko": true,
+        "**/*.mod": true,
+        "**/*.mod.c": true,
+        "**/*.symvers": true,
+        "**/modules.order": true,
+    },
+
+    "clangd.checkUpdates": true,
+    "clangd.arguments": [
+        "--compile-commands-dir=${workspaceFolder}",
+        "--background-index"
+    ],
 }
