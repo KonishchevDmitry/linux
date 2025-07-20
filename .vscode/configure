@@ -11,7 +11,8 @@
 
 set -exu
 
-sudo apt install apt-file bash-completion bc bison build-essential clang clangd command-not-found flex htop libelf-dev libncurses-dev libssl-dev lld llvm man-db zstd
+sudo apt install apt-file bash-completion bc bison clang clangd command-not-found flex htop libelf-dev libncurses-dev libssl-dev lld llvm make man-db zstd
+#dnf install bc bison clang clangd flex elfutils-libelf-devel ncurses-devel openssl-devel lld llvm make zstd
 #code --install-extension ms-vscode.makefile-tools
 #code --install-extension ms-vscode.cpptools
 code --install-extension llvm-vs-code-extensions.vscode-clangd

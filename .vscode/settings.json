@@ -30,8 +30,5 @@
     },
 
     "clangd.checkUpdates": true,
-    "clangd.arguments": [
-        "--compile-commands-dir=${workspaceFolder}",
-        "--background-index"
-    ],
+    "clangd.arguments": ["-j", "10"],
 }
