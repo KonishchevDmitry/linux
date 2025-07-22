@@ -19,14 +19,14 @@
     },
 
     "files.exclude": {
+        "**/modules.order": true,
         "**/.*.*.cmd": true,
         "**/*.a": true,
         "**/*.o": true,
         "**/*.ko": true,
         "**/*.mod": true,
         "**/*.mod.c": true,
-        "**/*.symvers": true,
-        "**/modules.order": true,
+        "**/*.symvers": true
     },
 
     "clangd.checkUpdates": true,
