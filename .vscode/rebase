@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+# Rebases development environment to a new tag/branch
+#
+
+set -eu
+
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 COMMIT" >&2
+    exit 1
+fi
+
+new_base="$1"
+
+git tag -f new-base "$new_base"
+git rebase --onto "$new_base" base
+
+git tag -f base "$new_base"
+git tag -d new-base
+
+git push -f origin base
