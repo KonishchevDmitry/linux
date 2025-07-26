@@ -19,3 +19,4 @@ git tag -f base "$new_base"
 git tag -d new-base
 
 git push -f origin base
+git clean -di
